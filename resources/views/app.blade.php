@@ -14,6 +14,12 @@
      @include('components.navbar')
      @include('components.loader')
  
+     <div id="message-div" class="d-none my-3"></div>
+<div id="loading-div" class="d-none text-center">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
      <div class="" id="content-div">
          @yield('content')
      </div>
