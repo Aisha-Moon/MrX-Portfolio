@@ -19,7 +19,7 @@ class ResumeController extends Controller
 
     }
     function educationData(Request $request){
-            return DB::table('educations')->get();
+            return DB::table('education')->get();
 
     }
     function skillsData(Request $request){

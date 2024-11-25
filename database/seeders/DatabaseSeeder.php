@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProjectsSeeder::class);
         $this->call(ResumesSeeder::class);
         $this->call(HeroPropertiesSeeder::class);
+        $this->call(AboutsSeeder::class);
     }
 }
