@@ -37,12 +37,14 @@ html {
     max-width: 40rem;
 }
 .profile .profile-img {
-    height: 80vw;
-    max-height: 45rem;
+    height: 70vw;
+        max-height: 45rem;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 50%; /* Rounded image */
+    border: 3px solid #121212; /* Subtle dark border */
 }
 @media (min-width: 576px) {
     .profile {
@@ -50,7 +52,7 @@ html {
         width: 60vw;
     }
     .profile .profile-img {
-        height: 65vw;
+        height: 56vw;
     }
 }
 @media (min-width: 768px) {
@@ -73,20 +75,24 @@ html {
 }
 @media (min-width: 1200px) {
     .profile {
-        height: 35vw;
+        height: 33vw;
         width: 35vw;
     }
     .profile .profile-img {
-        height: 40vw;
+        height: 33vw;
     }
 }
+
+
+
+
 
 #loading-div{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 70vh;
+    min-height: 80vh;
     overflow: hidden;
 }
 

@@ -32,8 +32,10 @@
                              <label for="message">Message</label>
                          </div>
                          </div>
-                         <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
-                     </form>
+                         <div class="d-grid">
+                            <button class="btn btn-primary w-auto mx-auto" id="submitButton" type="submit">Submit</button>
+                        </div>
+                         </form>
                  </div>
              </div>
          </div>
