@@ -1,4 +1,4 @@
 @extends('admin.layout.sidenav-layout')
 @section('content')
-@include('components.admin.hero.hero-list')
+@include('components.admin.sidepage.hero-list')
 @endsection

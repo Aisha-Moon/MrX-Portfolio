@@ -17,6 +17,9 @@ class DashboardController extends Controller
     public function heroPage(){
         return view('admin.pages.dashboard.hero-page');
     }
-
+    
+    public function experience(){
+        return view('admin.pages.dashboard.experience-page');
+    }
  
 }

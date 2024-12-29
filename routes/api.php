@@ -7,6 +7,8 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\admin\api\HeroController;
+use App\Http\Controllers\admin\api\AboutController;
+use App\Http\Controllers\admin\api\ExperienceController;
 
 // ajax call routes
 
@@ -26,3 +28,12 @@ Route::post('contactRequest',[ContactController::class,'contactRequest']);
 
 Route::get('/hero', [HeroController::class, 'index']);
 Route::post('/hero', [HeroController::class, 'storeOrUpdate']);
+
+//about api
+
+Route::get('/about', [AboutController::class, 'index']);
+Route::post('/about', [AboutController::class, 'storeOrUpdate']);
+
+//experience api
+
+Route::apiResource('experience', ExperienceController::class);

@@ -33,8 +33,5 @@ Route::get('/dashboard',[DashboardController::class,'DashboardPage'])->middlewar
 Route::get('/user-profile',[UserController::class,'UserProfile'])->middleware('tokenVerify');
 Route::get('/userProfile',[UserController::class,'ProfilePage'])->middleware('tokenVerify');
 Route::get('heroPage', [DashboardController::class, 'heroPage'])->name('hero.page')->middleware('tokenVerify');
-Route::get('customerPage', [CustomerController::class, 'page'])->name('customers.page')->middleware('tokenVerify');
-Route::get('productPage', [ProductController::class, 'page'])->name('products.page')->middleware('tokenVerify');
-Route::get('/invoicePage',[InvoiceController::class,'InvoicePage'])->middleware('tokenVerify');
-Route::get('/salePage',[InvoiceController::class,'SalePage'])->middleware('tokenVerify');
-Route::get('/reportPage',[ReportController::class,'ReportPage'])->middleware('tokenVerify');
+Route::get('aboutPage', [DashboardController::class, 'aboutPage'])->name('about.page')->middleware('tokenVerify');
+Route::get('experience', [DashboardController::class, 'experience'])->name('experience.page')->middleware('tokenVerify');

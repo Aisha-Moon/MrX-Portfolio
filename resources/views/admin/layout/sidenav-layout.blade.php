@@ -82,30 +82,24 @@
         <span class="side-bar-item-caption">Hero-Section</span>
     </a>
 
-    <a href="{{url("/categoryPage")}}" class="side-bar-item">
-        <i class="bi bi-list-nested"></i>
-        <span class="side-bar-item-caption">Category</span>
-    </a>
+ <!-- Sidebar Item: About -->
+<a href="{{url('/aboutPage')}}" class="side-bar-item">
+    <i class="bi bi-list-nested"></i>
+    <span class="side-bar-item-caption">About</span>
+</a>
 
-    <a href="{{url("/productPage")}}" class="side-bar-item">
+<div class="side-bar-item dropdown">
+    <a href="#" class="dropdown-toggle" id="resumeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-bag"></i>
-        <span class="side-bar-item-caption">Product</span>
+        <span class="side-bar-item-caption">Resume</span>
     </a>
-
-    <a href="{{url('/salePage')}}" class="side-bar-item">
-        <i class="bi bi-currency-dollar"></i>
-        <span class="side-bar-item-caption">Create Sale</span>
-    </a>
-
-    <a href="{{url('/invoicePage')}}" class="side-bar-item">
-        <i class="bi bi-receipt"></i>
-        <span class="side-bar-item-caption">Invoice</span>
-    </a>
-
-    <a href="{{url('/reportPage')}}" class="side-bar-item">
-        <i class="bi bi-file-earmark-bar-graph"></i>
-        <span class="side-bar-item-caption">Report</span>
-    </a>
+    <ul class="dropdown-menu" aria-labelledby="resumeDropdown">
+        <li><a class="dropdown-item" href="{{url('/education')}}">Education</a></li>
+        <li><a class="dropdown-item" href="{{url('/experience')}}">Experience</a></li>
+        <li><a class="dropdown-item" href="{{url('/skills')}}">Skills</a></li>
+        <li><a class="dropdown-item" href="{{url('/languages')}}">Languages</a></li>
+    </ul>
+</div>
 
 
 </div>
