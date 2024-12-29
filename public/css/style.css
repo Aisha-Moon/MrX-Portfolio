@@ -37,14 +37,14 @@ html {
     max-width: 40rem;
 }
 .profile .profile-img {
-    height: 70vw;
+    height: 60vw;
         max-height: 45rem;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%; /* Rounded image */
-    border: 3px solid #121212; /* Subtle dark border */
+    /* border: 3px solid #121212; Subtle dark border */
 }
 @media (min-width: 576px) {
     .profile {

@@ -94,9 +94,10 @@
         <span class="side-bar-item-caption">Resume</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="resumeDropdown">
+        <li><a class="dropdown-item" href="{{url('/resume')}}">Resume</a></li>
         <li><a class="dropdown-item" href="{{url('/education')}}">Education</a></li>
         <li><a class="dropdown-item" href="{{url('/experience')}}">Experience</a></li>
-        <li><a class="dropdown-item" href="{{url('/skills')}}">Skills</a></li>
+        <li><a class="dropdown-item" href="{{url('/skill')}}">Skills</a></li>
         <li><a class="dropdown-item" href="{{url('/languages')}}">Languages</a></li>
     </ul>
 </div>

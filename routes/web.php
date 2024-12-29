@@ -35,3 +35,7 @@ Route::get('/userProfile',[UserController::class,'ProfilePage'])->middleware('to
 Route::get('heroPage', [DashboardController::class, 'heroPage'])->name('hero.page')->middleware('tokenVerify');
 Route::get('aboutPage', [DashboardController::class, 'aboutPage'])->name('about.page')->middleware('tokenVerify');
 Route::get('experience', [DashboardController::class, 'experience'])->name('experience.page')->middleware('tokenVerify');
+Route::get('education', [DashboardController::class, 'education'])->name('education.page')->middleware('tokenVerify');
+Route::get('skill', [DashboardController::class, 'skill'])->name('skill.page')->middleware('tokenVerify');
+Route::get('languages', [DashboardController::class, 'language'])->name('language.page')->middleware('tokenVerify');
+Route::get('resume', [DashboardController::class, 'resume'])->name('resume.page')->middleware('tokenVerify');

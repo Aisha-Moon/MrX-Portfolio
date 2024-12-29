@@ -21,5 +21,17 @@ class DashboardController extends Controller
     public function experience(){
         return view('admin.pages.dashboard.experience-page');
     }
+    public function education(){
+        return view('admin.pages.dashboard.education-page');
+    }
+    public function skill(){
+        return view('admin.pages.dashboard.skill-page');
+    }
+    public function language(){
+        return view('admin.pages.dashboard.language-page');
+    }
+    public function resume(){
+        return view('admin.pages.dashboard.resume-page');
+    }
  
 }

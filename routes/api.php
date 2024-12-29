@@ -8,8 +8,11 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\admin\api\HeroController;
 use App\Http\Controllers\admin\api\AboutController;
+use App\Http\Controllers\admin\api\SkillController;
+use App\Http\Controllers\admin\api\LanguageController;
+use App\Http\Controllers\admin\api\EducationController;
 use App\Http\Controllers\admin\api\ExperienceController;
-
+use App\Http\Controllers\admin\api\ResumeController as AdminResumeController;
 // ajax call routes
 
 Route::get('heroData',[HomeController::class,'heroData']);
@@ -34,6 +37,17 @@ Route::post('/hero', [HeroController::class, 'storeOrUpdate']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::post('/about', [AboutController::class, 'storeOrUpdate']);
 
+//resume api
+
+Route::get('/resume', [AdminResumeController::class, 'index']);
+Route::post('/resume', [AdminResumeController::class, 'storeOrUpdate']);
+
 //experience api
 
 Route::apiResource('experience', ExperienceController::class);
+//experience api
+Route::apiResource('education', EducationController::class);
+//skills api
+Route::apiResource('skill', SkillController::class);
+//Language api
+Route::apiResource('language', LanguageController::class);
