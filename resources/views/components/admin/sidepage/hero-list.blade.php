@@ -99,12 +99,15 @@ async function getHeroDetails() {
 
         if (res.status === 200 && res.data.data.length > 0) {
             let data = res.data.data[0];
+         console.log(data.image);
 
             // Populate hero section
             document.getElementById('hero-title').innerText = data.title || '';
             document.getElementById('hero-subtitle').innerText = data.short_title || '';
             document.getElementById('hero-description').innerText = data.keyLine || '';
-            document.getElementById('hero-image').src = data.image || 'default-image.jpg';
+            document.getElementById('hero-image').src = data.image 
+                                                        ? `/storage/${data.image}` 
+                                                        : 'default-image.jpg';
         } else {
             errorToast("No hero data available.");
         }

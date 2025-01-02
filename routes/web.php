@@ -38,4 +38,6 @@ Route::get('experience', [DashboardController::class, 'experience'])->name('expe
 Route::get('education', [DashboardController::class, 'education'])->name('education.page')->middleware('tokenVerify');
 Route::get('skill', [DashboardController::class, 'skill'])->name('skill.page')->middleware('tokenVerify');
 Route::get('languages', [DashboardController::class, 'language'])->name('language.page')->middleware('tokenVerify');
-Route::get('resume', [DashboardController::class, 'resume'])->name('resume.page')->middleware('tokenVerify');
+Route::get('resumePage', [DashboardController::class, 'resume'])->name('resume.page')->middleware('tokenVerify');
+Route::get('projectPage', [DashboardController::class, 'projectPage'])->name('project.page')->middleware('tokenVerify');
+Route::get('contactPage', [DashboardController::class, 'contactPage'])->name('contact.page')->middleware('tokenVerify');

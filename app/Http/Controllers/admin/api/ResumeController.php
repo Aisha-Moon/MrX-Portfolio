@@ -16,25 +16,23 @@ class ResumeController extends BaseController
         return response()->json(['data' => $resume], 200);
     }
 
-    // Create or Update resume details
     public function storeOrUpdate(Request $request)
     {
         $request->validate([
-            'downloadLink' => 'required|url|max:255',
+            'resumeFile' => 'required|mimes:pdf|max:2048',
         ]);
-
+    
+        $filePath = $request->file('resumeFile')->store('resumes', 'public');
+    
         $resume = Resume::first();
-
+    
         if ($resume) {
-            $resume->update([
-                'downloadLink' => $request->downloadLink,
-            ]);
-            return $this->sendResponse($resume, 'Resume link updated successfully.');
+            $resume->update(['downloadLink' => asset('storage/' . $filePath)]);
+            return response()->json(['message' => 'Resume link updated successfully.'], 200);
         } else {
-            $newResume = Resume::create([
-                'downloadLink' => $request->downloadLink,
-            ]);
-            return $this->sendResponse($newResume, 'Resume link created successfully.');
+            $newResume = Resume::create(['downloadLink' => asset('storage/' . $filePath)]);
+            return response()->json(['message' => 'Resume link created successfully.'], 201);
         }
     }
-}
+    
+}    

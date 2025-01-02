@@ -13,6 +13,8 @@ use App\Http\Controllers\admin\api\LanguageController;
 use App\Http\Controllers\admin\api\EducationController;
 use App\Http\Controllers\admin\api\ExperienceController;
 use App\Http\Controllers\admin\api\ResumeController as AdminResumeController;
+use App\Http\Controllers\admin\api\ProjectController as AdminProjectController;
+use App\Http\Controllers\admin\api\ContactController as AdminContactController;
 // ajax call routes
 
 Route::get('heroData',[HomeController::class,'heroData']);
@@ -51,3 +53,9 @@ Route::apiResource('education', EducationController::class);
 Route::apiResource('skill', SkillController::class);
 //Language api
 Route::apiResource('language', LanguageController::class);
+//project api
+Route::apiResource('projects', AdminProjectController::class);
+//contact api
+
+Route::get('/contact', [AdminContactController::class, 'index']); 
+Route::delete('/contact/{id}', [AdminContactController::class, 'destroy']); 

@@ -33,91 +33,86 @@
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
                  <div class="modal-body">
-                     <form id="resume-form">
-                         <div class="mb-3">
-                             <label for="resume-link-input" class="form-label">Resume Link</label>
-                             <input type="url" id="resume-link-input" class="form-control" required />
-                         </div>
-                         <button type="button" class="btn btn-primary" onclick="saveResumeContent()">Save</button>
-                     </form>
-                 </div>
+                    <form id="resume-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="resume-file-input" class="form-label">Upload Resume (PDF)</label>
+                            <input type="file" id="resume-file-input" class="form-control" accept="application/pdf" />
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="saveResumeContent()">Save</button>
+                    </form>
+                </div>
+                
              </div>
          </div>
      </div>
  </div>
  
- <script>
-     function showResumeForm() {
-         axios.get("/api/resume")
-             .then((res) => {
-                 if (res.status === 200 && res.data.data) {
-                     const data = res.data.data;
- 
-                     document.getElementById('resume-link-input').value = data.downloadLink || '';
-                     
-                     const modal = new bootstrap.Modal(document.getElementById('resume-modal'));
-                     modal.show();
-                 } else {
-                     errorToast("No existing resume data found.");
-                 }
-             })
-             .catch((error) => {
-                 console.error("Error fetching resume details:", error);
-                 errorToast("Failed to load resume details.");
-             });
-     }
- 
-     getResumeDetails();
- 
-     async function getResumeDetails() {
-         try {
-             showLoader();
-             let res = await axios.get("/api/resume");
-             console.log(res.data);
-             
-             hideLoader();
- 
-             if (res.status === 200 && res.data.data) {
-                 let data = res.data.data;
- 
-                 document.getElementById('resume-link').innerHTML = data.downloadLink
-                     ? `<a href="${data.downloadLink}" target="_blank">${data.downloadLink}</a>`
-                     : "No Resume Link Available";
-             } else {
-                 errorToast("No resume data available.");
-             }
-         } catch (error) {
-             hideLoader();
-             console.error("Error fetching resume details:", error);
-             errorToast("Error fetching resume details.");
-         }
-     }
- 
-     async function saveResumeContent() {
-         try {
-             showLoader();
- 
-             const formData = {
-               downloadLink: document.getElementById('resume-link-input').value,
-             };
- 
-             let res = await axios.post('/api/resume', formData);
- 
-             hideLoader();
- 
-             if (res.status === 200 || res.status === 201) {
-                 successToast(res.data.message);
-                 getResumeDetails();
-                 const modal = bootstrap.Modal.getInstance(document.getElementById('resume-modal'));
-                 modal.hide();
-             } else {
-                 errorToast("Failed to save resume content.");
-             }
-         } catch (error) {
-             hideLoader();
-             console.error("Error saving resume content:", error);
-             errorToast("Error saving resume content.");
-         }
-     }
- </script>
+    <script>
+    function showResumeForm() {
+        const modal = new bootstrap.Modal(document.getElementById('resume-modal'));
+        modal.show();
+    }
+
+    async function saveResumeContent() {
+        try {
+            showLoader();
+
+            const fileInput = document.getElementById('resume-file-input');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                errorToast("Please select a file.");
+                hideLoader();
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('resumeFile', file);
+
+            let res = await axios.post('/api/resume', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            hideLoader();
+
+            if (res.status === 200 || res.status === 201) {
+                successToast(res.data.message);
+                getResumeDetails();
+                const modal = bootstrap.Modal.getInstance(document.getElementById('resume-modal'));
+                modal.hide();
+            } else {
+                errorToast("Failed to save resume content.");
+            }
+        } catch (error) {
+            hideLoader();
+            console.error("Error saving resume content:", error);
+            errorToast("Error saving resume content.");
+        }
+    }
+
+    async function getResumeDetails() {
+        try {
+            showLoader();
+            let res = await axios.get("/api/resume");
+            hideLoader();
+
+            if (res.status === 200 && res.data.data) {
+                let data = res.data.data;
+
+                document.getElementById('resume-link').innerHTML = data.downloadLink
+                    ? `<a href="${data.downloadLink}" target="_blank">${data.downloadLink}</a>`
+                    : "No Resume Link Available";
+            } else {
+                errorToast("No resume data available.");
+            }
+        } catch (error) {
+            hideLoader();
+            console.error("Error fetching resume details:", error);
+            errorToast("Error fetching resume details.");
+        }
+    }
+</script>
+
  

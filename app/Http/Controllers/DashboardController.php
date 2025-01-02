@@ -17,6 +17,9 @@ class DashboardController extends Controller
     public function heroPage(){
         return view('admin.pages.dashboard.hero-page');
     }
+    public function aboutPage(){
+        return view('admin.pages.dashboard.about-page');
+    }
     
     public function experience(){
         return view('admin.pages.dashboard.experience-page');
@@ -32,6 +35,12 @@ class DashboardController extends Controller
     }
     public function resume(){
         return view('admin.pages.dashboard.resume-page');
+    }
+    public function projectPage(){
+        return view('admin.pages.dashboard.project-page');
+    }
+    public function contactPage(){
+        return view('admin.pages.dashboard.contact-page');
     }
  
 }

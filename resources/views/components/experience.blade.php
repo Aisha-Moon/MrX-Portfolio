@@ -8,7 +8,7 @@
             <section>
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h2 class="text-primary fw-bolder mb-0">Experience</h2>
-                    <a target="_blank" class="btn btn-primary px-4 py-3" id="CVDownloadLink" href="">
+                    <a target="_blank" class="btn btn-primary px-4 py-3" id="CVDownloadLink" href="{{url('pdf-generate')}}">
                         <div class="d-inline-block bi bi-download me-2"></div>
                         Download Resume
                     </a>
